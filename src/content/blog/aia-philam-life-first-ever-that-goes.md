@@ -1,7 +1,7 @@
 ---
 title: "AIA Philam Life - 100% Paperless with their All-Digital Platform"
 date: 2021-03-27
-description: "The Insurance Commission recently released a circular approving alternative face to face selling, providing guidelines that empower insurance companies to…"
+description: "The Insurance Commission approved alternative face to face selling, and AIA Philam Life adapted to digital insurance selling."
 tags: []
 heroImage: /images/blog/aia-philam-life-first-ever-that-goes/3dc2867a-b0b4-44a7-b28d-739c929a9e3b.png
 oldUrl: /2021/03/aia-philam-life-first-ever-that-goes.html

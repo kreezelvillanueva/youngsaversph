@@ -1,0 +1,140 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/2021/08/health-link.html",
+      "destination": "/blog/health-link/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2020/06/aia-med-assist.html",
+      "destination": "/products/med-assist/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2021/04/aia-critical-protect-100.html",
+      "destination": "/products/critical-protect-100/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2021/03/aia-philam-life-first-ever-that-goes.html",
+      "destination": "/blog/aia-philam-life-first-ever-that-goes/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2020/07/importance-of-insurance.html",
+      "destination": "/blog/importance-of-insurance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2020/07/insurance-vs-hmo.html",
+      "destination": "/blog/insurance-vs-hmo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2020/07/do-you-know-what-protection-youre.html",
+      "destination": "/blog/do-you-know-what-protection-youre/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2020/07/3-building-blocks-to-powerful-emergency.html",
+      "destination": "/blog/3-building-blocks-to-powerful-emergency/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2020/07/blog-post.html",
+      "destination": "/blog/blog-post/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/quick-myaia-guide.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/aia-med-assist-frequently-asked.html",
+      "destination": "/products/med-assist/#faq",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/mail-signature.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/health-questionnaire.html",
+      "destination": "/contact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/thank-you-your-initial-application-form.html",
+      "destination": "/become-an-advisor/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/shop.html",
+      "destination": "/contact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/your-request-for-quote-has-been.html",
+      "destination": "/contact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/why-philam-vitality-is-right-for-you.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/thank-you.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/we-are-hiring-financial-advisor.html",
+      "destination": "/become-an-advisor/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/privacy-policy.html",
+      "destination": "/contact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/free-financial-planning-ebook.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/p/message-me.html",
+      "destination": "/contact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/search/label/:label",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/search",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/feeds/:path*",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:year(\\d{4})/:month(\\d{2})",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:year(\\d{4})",
+      "destination": "/blog/",
+      "statusCode": 301
+    }
+  ]
+}

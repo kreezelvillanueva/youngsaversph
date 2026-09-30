@@ -1,7 +1,7 @@
 ---
 title: "What is the Importance of Life Insurance?"
 date: 2020-07-30
-description: "What is the Importance of Life Insurance?"
+description: "A look at the importance of life insurance."
 tags: ["insurance"]
 heroImage: /images/blog/importance-of-insurance/7b55bb3d-1cf8-487f-a5a3-df1c62cc3542.jpeg
 oldUrl: /2020/07/importance-of-insurance.html
