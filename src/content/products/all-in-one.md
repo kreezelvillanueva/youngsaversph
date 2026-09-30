@@ -21,4 +21,4 @@ The plan gives a cash payout to your loved ones in case of an untimely death, an
 
 \*Payment of benefits is subject to the terms, conditions, definitions, exclusions and limitations found in the policy contract.
 
-<!-- TODO(owner): the old site had no All-In-One page. Add plan details (issue ages, coverage amounts, riders, how claims work) from current AIA material, or keep this page short. -->
+TODO(owner): the old site had no All-In-One page. Add plan details (issue ages, coverage amounts, riders, how claims work) from current AIA material, or keep this page short.
