@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const perks = [
+  { icon: 'laptop', text: 'Mobile Office App' },
+  { icon: 'wallet', text: '25K to 75K Monthly Allowance for Full-Timers', todo: true },
+  { icon: 'growth', text: '25% Performance Based Commissions (Earn 20K to 50K On Top of Allowance & Bonuses)', todo: true },
+  { icon: 'award', text: 'Quarterly Performance Bonus' },
+  { icon: 'check', text: 'Local & International Travel Incentives' },
+  { icon: 'clock', text: 'Flexibility in your working hours / business calendar' },
+];
+
+const requirements = [
+  'Must have a reliable internet connection',
+  'Willing to invest and take the Financial Advisor Licensure Exams (with fee for both License and Exam)',
+  '20 to 35 years old',
+  'Graduate of any 4-year Course',
+  'Currently Employed/ Unemployed looking for a business to establish and grow',
+  'Business/ Entrepreneurial Experience are a big plus!',
+  'Strong Interpersonal, Communication & Leadership Skills',
+];
+---
+
+<Base
+  title="Become a Financial Advisor"
+  description="Join our team as a full-time or part-time AIA Philippines financial advisor. See what you get, the minimum requirements, and apply online."
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag">We are hiring</span>
+        <h1>Become a financial advisor</h1>
+        <p class="lede">Looking for full-time or part-time financial advisors. Join our team and start your success journey with us in AIA Philippines.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#apply">Apply now <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          <a class="btn btn-ghost" href={site.messenger[1].href}><svg class="ico" aria-hidden="true"><use href="#i-msg" /></svg>Ask me on Messenger</a>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="/images/site/become-an-advisor/73588c30-7e11-444f-a6e6-a4853e4e56ef.jpeg" alt="Two financial advisors reviewing notes over coffee" width="1920" height="1281" fetchpriority="high" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="get-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="get-h">What you get</h2>
+        <p class="lede">Kickstart your entrepreneurial journey and become the leader you've always aspired to be, in a rewarding business of helping others have better lives.</p>
+      </div>
+      <ul class="perks">
+        {perks.map((p) => (
+          <li class="card perk">
+            <span class="tile" aria-hidden="true"><svg class="ico"><use href={`#i-${p.icon}`} /></svg></span>
+            <span>{p.text}{p.todo && <span class="todo">TODO(owner): verify (2021 figure)</span>}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="req-h">
+    <div class="wrap two">
+      <div>
+        <h2 id="req-h">Minimum requirements</h2>
+        <ul class="ticks">
+          {requirements.map((r) => <li><svg class="ico" aria-hidden="true"><use href="#i-tick" /></svg>{r}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 id="how-h">How it works</h2>
+        <ol class="steps">
+          <li><b>Apply</b> with the form below and submit your resume.</li>
+          <li><b>Train and get licensed.</b> Trainings and licensure exams can be done online or face to face.</li>
+          <li><b>Start advising</b> clients with the team behind you.</li>
+        </ol>
+        <p class="offer">
+          Finish your online training modules in 10 days and we will shoulder the cost of your exam fee. Just pay for the license fee.
+          <span class="todo">TODO(owner): verify this offer is still running (2021)</span>
+        </p>
+        <p><a class="link" href="https://www.youtube.com/watch?v=AnZj0CFd4-Y" target="_blank" rel="noopener">Watch: #StepUp with AIA Philippines <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="apply" aria-labelledby="apply-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="apply-h">Apply now</h2>
+        <p class="lede">Fill in the application form and submit your resume. I will get back to you.</p>
+      </div>
+      <div class="form-card card">
+        <div data-testid="jotform"><script is:inline src={`https://form.jotform.com/jsform/${site.jotformId}`}></script></div>
+        <p class="fallback"><a class="link" href={`https://form.jotform.com/${site.jotformId}`}>Open the application form <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="q-h">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2 id="q-h">Questions first?</h2>
+          <p class="lede">Message me and I'll tell you what the work is really like.</p>
+        </div>
+        <a class="btn btn-primary" href={site.messenger[1].href}><svg class="ico" aria-hidden="true"><use href="#i-msg" /></svg>{site.messenger[1].label} on Messenger</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-16) 0 var(--space-18); }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; }
+  h1 { font-size: var(--text-h1); margin-block: var(--space-4) var(--space-5); }
+  .hero .lede { margin-bottom: var(--space-8); }
+  .ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-photo); aspect-ratio: 4 / 3; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 50%; }
+
+  .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); list-style: none; }
+  .perk { display: flex; gap: 14px; align-items: flex-start; padding: var(--space-6); color: var(--color-ink); font-weight: var(--weight-medium); }
+  .tile { width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--color-blush); color: var(--color-maroon); display: grid; place-items: center; flex: none; }
+  .todo {
+    display: block; width: fit-content; margin-top: var(--space-2); padding: 2px 8px; border-radius: var(--radius-pill);
+    font-size: var(--text-2xs); font-weight: var(--weight-semibold); color: var(--color-maroon); background: var(--color-blush);
+    border: 1px dashed var(--color-maroon);
+  }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
+  .two h2 { font-size: var(--text-h2-sm); margin-bottom: var(--space-6); }
+  .ticks { list-style: none; display: grid; gap: var(--space-3); }
+  .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+  .ticks .ico { width: 20px; height: 20px; color: var(--color-maroon); flex: none; margin-top: 3px; }
+  .steps { padding-left: 1.3em; display: grid; gap: var(--space-3); }
+  .steps li::marker { color: var(--color-maroon); font-weight: var(--weight-bold); }
+  .offer { margin-block: var(--space-6); padding: var(--space-5); background: var(--color-blush-soft); border-radius: var(--radius-md); }
+
+  .form-card { padding: var(--space-6); min-width: 0; }
+  .fallback { margin-top: var(--space-4); font-size: var(--text-sm); }
+
+  @media (max-width: 960px) {
+    .hero { padding: var(--space-7) 0 var(--space-16); }
+    .hero-grid, .two { grid-template-columns: 1fr; gap: var(--space-10); }
+    .ctas .btn { flex: 1 1 100%; }
+    .perks { grid-template-columns: 1fr; }
+    .split { flex-direction: column; align-items: flex-start; }
+    .split .btn { width: 100%; }
+    .form-card { padding: var(--space-3); }
+  }
+</style>
