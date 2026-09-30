@@ -28,38 +28,38 @@ Because your benefits are not affected by market risks, you can be sure you get 
 
 Critical illnesses like cancer, stroke and heart disease need extensive medical care and treatment, and their costs can outstrip a family's savings quickly. Without an emergency fund or health savings fund, paying those bills out of pocket is even harder.
 
-## What it covers
+### What it covers
 
-### 100 critical illnesses until age 100
+#### 100 critical illnesses until age 100
 
 Some critical illnesses happen early, and some come with old age. AIA Critical Protect 100 protects you against 100 illnesses, from age 0 until 100.
 
-### 57 major critical illnesses
+#### 57 major critical illnesses
 
 Receive a cash benefit once you're diagnosed with any of the 57 major critical illnesses.
 
-### Early stage or other minor critical illnesses
+#### Early stage or other minor critical illnesses
 
 If you're diagnosed with any of the covered early-stage conditions, you can get 25% (up to a maximum of PHP 1,000,000) of your critical illness coverage in advance.
 
-### Juvenile critical illnesses
+#### Juvenile critical illnesses
 
 The benefit under the Juvenile CI list can no longer be claimed once the insured reaches 22 years old.
 
-### A healthier, longer and better life
+#### A healthier, longer and better life
 
 AIA Critical Protect 100 comes with AIA Vitality (formerly Philam Vitality). Besides protection against illnesses, you get access to a total wellness program that helps you know your health, improve your health and enjoy rewards throughout your wellness journey.
 
-## Additional coverage
+### Additional coverage
 
-### Gender-specific cancer rider
+#### Gender-specific cancer rider
 
 Add a gender-specific rider to receive an additional 50% benefit if you're diagnosed with a gender-specific cancer (for example prostate cancer, cervical cancer or ovarian cancer).
 
-### Recovery benefit rider
+#### Recovery benefit rider
 
 Count on AIA Critical Protect 100 from treatment to recovery. With this rider, you can receive 5 yearly recovery cash benefits, each worth 10% of your main coverage. You can claim the first payout one year after the major claim.
 
-### Waiver of premium in case of death or total disability
+#### Waiver of premium in case of death or total disability
 
 If the payor dies or becomes totally disabled, all future premium payments for juvenile policies (insured aged 0 to 17) are waived.

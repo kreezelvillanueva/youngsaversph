@@ -24,6 +24,12 @@
   --color-on-ink-faint: #dcb3bf;     /* fine print on --color-maroon-ink */
   --color-on-maroon-line: rgba(255, 255, 255, .16);
   --color-on-maroon-fill: rgba(255, 255, 255, .14);
+  --color-on-maroon-border: rgba(255, 255, 255, .22);
+  --color-on-maroon-hover: rgba(255, 255, 255, .1);
+  --color-on-maroon-glow: rgba(255, 255, 255, .07);  /* decorative circles */
+  --color-glass: rgba(255, 255, 255, .9);            /* sticky header */
+  --color-chip: rgba(255, 255, 255, .94);            /* labels over photos */
+  --gradient-photo-fade: linear-gradient(transparent, rgba(92, 13, 37, .5));
   --gradient-maroon: linear-gradient(150deg, var(--color-maroon) 0%, var(--color-maroon-ink) 100%);
 
   /* Type */
@@ -93,6 +99,7 @@
   --shadow-photo: 0 24px 48px -20px rgba(40, 6, 18, .55);
   --shadow-btn: 0 10px 24px -12px rgba(139, 21, 56, .7);
   --shadow-btn-hover: 0 14px 28px -12px rgba(139, 21, 56, .8);
+  --shadow-chip: 0 4px 12px -6px rgba(0, 0, 0, .35);
 
   /* Motion */
   --ease: cubic-bezier(.16, 1, .3, 1);   /* exponential ease-out */

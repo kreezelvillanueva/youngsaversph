@@ -91,6 +91,10 @@ const illustration = heroImage?.endsWith('.png');
 </Base>
 
 <style>
+  /* Body headings sit under "Plan details" (h2), so they start at h3; keep the h2/h3 prose look. */
+  .prose :global(h3) { font-size: var(--text-h2-sm); letter-spacing: var(--tracking-heading); line-height: var(--leading-tight); margin-top: 2em; }
+  .prose :global(h4) { font-size: var(--text-h3); font-weight: var(--weight-bold); letter-spacing: var(--tracking-h3); line-height: var(--leading-snug); margin-top: 1.6em; margin-bottom: 0; }
+  .prose :global(h4 + *), .prose :global(h3 + h4) { margin-top: .6em; }
   .hero { padding: var(--space-16) 0 var(--space-18); }
   .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--space-12); align-items: center; }
   .hero .tag { margin-bottom: var(--space-5); }
