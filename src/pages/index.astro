@@ -1,0 +1,435 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import CalendlyEmbed from '../components/CalendlyEmbed.astro';
+import { site } from '../data/site';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+const fmtDate = (d: Date) => d.toLocaleDateString('en-PH', { year: 'numeric', month: 'short', day: 'numeric' });
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+const productHref = (slug: string) => `/products/${slug}/`;
+const byslug = Object.fromEntries(site.products.map((p) => [p.slug, p.name]));
+const firstName = site.advisor.split(' ')[0];
+---
+
+<Base
+  title="Kreezel Villanueva, AIA Philippines Financial Advisor"
+  description="Insurance, made simple. Plan your savings, protection and investments with a licensed AIA Philippines advisor. Fully online, starting with a free assessment."
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="guide">
+          <span class="av"><img src="/images/site/kreezel-villanueva-about.jpg" alt="" width="1214" height="730" decoding="async" /></span>
+          <span><b>Your guide: {site.advisor}</b><span class="role">{site.role}</span></span>
+        </div>
+        <h1>Insurance, made <em>simple.</em></h1>
+        <p class="lede">I help young earners and families plan their savings, protection and investments in plain language. It starts with a free online assessment, then a plan that fits your needs and your budget.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#book">Book a free online assessment <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          <a class="btn btn-ghost" href={site.messenger[0].href}><svg class="ico msg" aria-hidden="true"><use href="#i-msg" /></svg>Message me on Messenger</a>
+        </div>
+        <ul class="assure">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-laptop" /></svg>Fully online</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>Assessment first, no hard sell</li>
+        </ul>
+      </div>
+
+      <div class="mosaic">
+        <div class="block" aria-hidden="true"></div>
+        <figure class="m-big"><img src="/images/site/pillar-protection.jpg" alt="A family laughing together on a couch" width="1200" height="600" fetchpriority="high" decoding="async" /><figcaption><svg class="ico" aria-hidden="true"><use href="#i-shield" /></svg>Protection</figcaption></figure>
+        <figure class="m-s1"><img src="/images/site/pillar-savings.jpg" alt="A hand dropping a coin into a savings jar" width="658" height="370" decoding="async" /><figcaption><svg class="ico" aria-hidden="true"><use href="#i-piggy" /></svg>Savings</figcaption></figure>
+        <figure class="m-s2"><img src="/images/site/pillar-investment.jpg" alt="A rising chart over stacks of coins" width="1200" height="800" decoding="async" /><figcaption><svg class="ico" aria-hidden="true"><use href="#i-growth" /></svg>Investment</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt pillars" aria-labelledby="goals-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="goals-h">Start planning your financial goals</h2>
+        <p class="lede">Most plans are a mix of three things. Your assessment shows how much of each makes sense for you.</p>
+      </div>
+      <div class="pgrid">
+        <article class="pillar big">
+          <div class="pimg"><img src="/images/site/pillar-protection.jpg" alt="" width="1200" height="600" loading="lazy" decoding="async" style="object-position:40% 40%" /><span class="pill-tag" aria-hidden="true"><svg class="ico"><use href="#i-shield" /></svg>Protection</span></div>
+          <div class="pbody"><h3>Protection</h3><p>Life insurance benefits for your beneficiaries in case of death.</p></div>
+        </article>
+        <article class="pillar">
+          <div class="pimg"><img src="/images/site/pillar-savings.jpg" alt="" width="658" height="370" loading="lazy" decoding="async" /><span class="pill-tag" aria-hidden="true"><svg class="ico"><use href="#i-piggy" /></svg>Savings</span></div>
+          <div class="pbody"><h3>Savings</h3><p>Secure your financial goals by starting to save.</p></div>
+        </article>
+        <article class="pillar">
+          <div class="pimg"><img src="/images/site/pillar-investment.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async" /><span class="pill-tag" aria-hidden="true"><svg class="ico"><use href="#i-growth" /></svg>Investment</span></div>
+          <div class="pbody"><h3>Investment</h3><p>Maximize the potential growth of your money by investing.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="online-h">
+    <div class="wrap">
+      <div class="split head">
+        <div>
+          <h2 id="online-h">Get your policy fully online</h2>
+          <p class="lede">No face-to-face meeting needed. Everything happens from your phone or laptop, on your schedule.</p>
+        </div>
+        <a class="link" href="#book">Start with a free assessment <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      </div>
+      <div class="tracker">
+        <div class="track-top">
+          <span><b>Your policy, step by step</b><small>Three steps, all online</small></span>
+          <span class="status"><i aria-hidden="true"></i>You start here</span>
+        </div>
+        <ol class="track">
+          <li class="tstep now"><span class="node" aria-hidden="true">1</span><div class="tcard"><img src="/images/site/process-virtual-meeting.png" alt="" width="256" height="256" loading="lazy" decoding="async" /><h3>Virtual meeting</h3><p>We talk over a video call about your goals, your family and your budget.</p><span class="when">Free assessment</span></div></li>
+          <li class="tstep"><span class="node" aria-hidden="true">2</span><div class="tcard"><img src="/images/site/process-online-application.png" alt="" width="256" height="256" loading="lazy" decoding="async" /><h3>Online application</h3><p>Once you pick a plan, you apply online. I guide you through each part.</p><span class="when">When you're ready</span></div></li>
+          <li class="tstep"><span class="node" aria-hidden="true">3</span><div class="tcard"><img src="/images/site/process-online-payment.png" alt="" width="344" height="256" loading="lazy" decoding="async" /><h3>Online payment</h3><p>Pay your premium online and your coverage is on its way.</p><span class="when">Last step</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="products" aria-labelledby="prod-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="prod-h">Featured plans</h2>
+        <p class="lede">Three plans people ask me about most. The free assessment tells us which one, if any, fits you.</p>
+      </div>
+      <div class="prod">
+        <article class="pcard">
+          <div class="pvis"><img class="contain" src="/images/blog/critical-protect-100/homepage-critical-illness.png" alt="Illustration of hands holding a heart with a heartbeat line" width="444" height="501" loading="lazy" decoding="async" /></div>
+          <div class="top">
+            <span class="tag">Critical illness</span>
+            <h3>{byslug['critical-protect-100']}</h3>
+            <p>Coverage for up to 100 critical illnesses, including cancer, stroke and heart disease.</p>
+          </div>
+          <div class="foot"><a class="link" href={productHref('critical-protect-100')}>Learn more<span class="visually-hidden"> about {byslug['critical-protect-100']}</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a></div>
+        </article>
+        <article class="pcard feature">
+          <div class="pvis"><img class="cover" src="/images/blog/med-assist/homepage-med-assist.png" alt="A woman caring for a family member in a hospital bed" width="889" height="414" loading="lazy" decoding="async" /></div>
+          <div class="top">
+            <span class="tag">Health</span>
+            <h3>{byslug['med-assist']}</h3>
+            <p>Hospital bills? No worries: save up to 90% of your hospital bills.</p>
+            <ul>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>Medical benefit</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>Hospital income benefit</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>Cash savings from investment</li>
+            </ul>
+          </div>
+          <div class="foot"><a class="link" href={productHref('med-assist')}>Learn more<span class="visually-hidden"> about {byslug['med-assist']}</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a></div>
+        </article>
+        <article class="pcard">
+          <div class="pvis plain"><img class="contain" src="/images/blog/all-in-one/homepage-all-in-one.png" alt="Pictograms of accidents, illness and hospital stays" width="600" height="564" loading="lazy" decoding="async" /></div>
+          <div class="top">
+            <span class="tag">All-round protection</span>
+            <h3>{byslug['all-in-one']}</h3>
+            <p>4 protections in one plan.</p>
+          </div>
+          <div class="foot"><a class="link" href={productHref('all-in-one')}>Learn more<span class="visually-hidden"> about {byslug['all-in-one']}</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="about-h">
+    <div class="wrap about-grid">
+      <figure class="profile">
+        <div class="ph"><img src="/images/site/kreezel-villanueva-about.jpg" alt={`Portrait of ${site.advisor}`} width="1214" height="730" loading="lazy" decoding="async" /></div>
+        <figcaption class="meta"><span><b>{site.advisor}</b><small>{site.role}</small></span><span class="verified" title="Top Financial Advisor"><svg class="ico" aria-hidden="true"><use href="#i-award" /></svg></span></figcaption>
+      </figure>
+      <div class="about">
+        <h2 id="about-h">Hi, I'm {firstName}.</h2>
+        <p class="lede">I'm {site.advisor}, a licensed AIA Philippines financial advisor.</p>
+        <p>I help young earners and families plan their savings, protection and investments. We do everything fully online. We start with an assessment, so I understand where you are before I suggest anything. Then we build a plan that fits your needs and your budget.</p>
+        <ul class="facts">
+          <li class="fact"><svg class="ico" aria-hidden="true"><use href="#i-award" /></svg>Top Financial Advisor</li>
+          <li class="fact"><svg class="ico" aria-hidden="true"><use href="#i-laptop" /></svg>Fully online</li>
+          <li class="fact"><svg class="ico" aria-hidden="true"><use href="#i-clock" /></svg>Assessment first</li>
+        </ul>
+        <a class="btn btn-primary" href="#book">Book a free online assessment <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc" aria-labelledby="calc-h">
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h2 id="calc-h">How much coverage do you actually need?</h2>
+          <p>Get a quick estimate with AIA's needs calculator, then bring the numbers to your assessment.</p>
+        </div>
+        <a class="btn btn-light" href={site.calculatorUrl} target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-calc" /></svg>Calculate your financial needs<span class="visually-hidden"> (opens aia.com.ph in a new tab)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blog" aria-labelledby="blog-h">
+    <div class="wrap">
+      <div class="split head">
+        <div>
+          <h2 id="blog-h">Latest from the blog</h2>
+          <p class="lede">Plain-language guides to money and insurance.</p>
+        </div>
+        <a class="link" href="/blog/">All posts <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      </div>
+      <ul class="posts">
+        {posts.map((p) => (
+          <li>
+            <a class="post" href={`/blog/${p.id}/`}>
+              <div class="thumb">{p.data.heroImage && <img src={p.data.heroImage} alt="" width="640" height="360" loading="lazy" decoding="async" />}</div>
+              <div class="body">
+                {p.data.tags[0] && <span class="cat">{cap(p.data.tags[0])}</span>}
+                <h3>{p.data.title}</h3>
+                <time datetime={p.data.date.toISOString().slice(0, 10)}>{fmtDate(p.data.date)}</time>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="book-h">Book a free online assessment</h2>
+        <p class="lede">Pick a time that works for you. We'll talk over video about your goals, and there's no obligation to buy.</p>
+      </div>
+      <div class="book-grid">
+        <CalendlyEmbed />
+        <ul class="contact">
+          <li><a class="citem msgr" href={site.messenger[0].href}><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-msg" /></svg></span><span><small>Prefer to chat first?</small><b>Message me on Messenger</b></span></a></li>
+          <li><a class="citem" href={site.phone.href}><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-phone" /></svg></span><span><small>Call or text</small><b>{site.phone.display}</b></span></a></li>
+          <li><a class="citem" href={`mailto:${site.email}`}><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-mail" /></svg></span><span><small>Email</small><b>{site.email}</b></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero */
+  .hero { padding: var(--space-18) 0 var(--space-24); overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; }
+  .guide {
+    display: inline-flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-7);
+    padding: 6px 18px 6px 6px; border-radius: var(--radius-pill);
+    background: var(--color-surface); border: 1px solid var(--color-line); box-shadow: var(--shadow-sm);
+    font-size: .9063rem; color: var(--color-ink); line-height: var(--leading-snug);
+  }
+  .guide .role { display: block; color: var(--color-muted); font-size: .8438rem; }
+  .av {
+    width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex: none; background: var(--color-blush);
+    box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 3.5px var(--color-rose);
+  }
+  .av img { width: 100%; height: 100%; object-fit: cover; object-position: 28% 22%; object-view-box: inset(6% 56% 40% 15%); }
+  h1 { font-size: var(--text-display); letter-spacing: var(--tracking-display); line-height: 1; }
+  h1 em { font-style: normal; color: var(--color-maroon); }
+  .hero .lede { margin-bottom: var(--space-9); }
+  .ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .ctas .msg { width: 20px; height: 20px; }
+  .assure { display: flex; gap: var(--space-6); flex-wrap: wrap; margin-top: var(--space-8); font-size: var(--text-sm); color: var(--color-muted); }
+  .assure li { display: flex; align-items: center; gap: var(--space-2); }
+  .assure .ico { width: 18px; height: 18px; color: var(--color-maroon); }
+
+  /* Hero photo mosaic: the one authored moment, photos settle in sequence */
+  .mosaic { position: relative; aspect-ratio: 1 / 1.02; max-width: 560px; width: 100%; justify-self: end; }
+  .block { position: absolute; inset: 8% 0 0 12%; background: var(--gradient-maroon); border-radius: var(--radius-xl); overflow: hidden; }
+  .block::after {
+    content: ""; position: absolute; right: -18%; bottom: -22%; width: 70%; aspect-ratio: 1;
+    border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .22);
+  }
+  .mosaic figure { position: absolute; border-radius: 22px; overflow: hidden; background: var(--color-maroon-ink); box-shadow: var(--shadow-photo); }
+  .mosaic figure img { width: 100%; height: 100%; object-fit: cover; filter: brightness(1.22) saturate(1.1) contrast(1.02); }
+  .mosaic figcaption {
+    position: absolute; left: var(--space-3); bottom: var(--space-3); display: flex; align-items: center; gap: 6px;
+    background: rgba(255, 255, 255, .94); color: var(--color-ink); font-size: var(--text-xs); font-weight: var(--weight-semibold);
+    padding: 6px 11px; border-radius: var(--radius-pill);
+  }
+  .mosaic figcaption .ico { width: 15px; height: 15px; color: var(--color-maroon); }
+  .m-big { left: 0; top: 0; width: 78%; aspect-ratio: 4 / 3.3; z-index: 2; }
+  .m-big img { object-position: 52% 40%; }
+  .m-s1 { right: 4%; top: 47%; width: 48%; aspect-ratio: 1; z-index: 3; border: 5px solid var(--color-surface); }
+  .m-s1 img { object-position: 62% 60%; }
+  .m-s2 { left: 8%; bottom: 2%; width: 40%; aspect-ratio: 1 / .85; z-index: 3; border: 5px solid var(--color-surface); }
+  .m-s2 img { object-position: 70% 60%; }
+  @keyframes settle { from { opacity: 0; transform: translateY(28px) scale(.97); filter: blur(6px); } }
+  .block { animation: settle var(--dur-settle) var(--ease) both; }
+  .m-big { animation: settle var(--dur-settle) var(--ease) .1s both; }
+  .m-s1 { animation: settle var(--dur-settle) var(--ease) .28s both; }
+  .m-s2 { animation: settle var(--dur-settle) var(--ease) .5s both; }
+
+  /* Goals */
+  .pillars { padding-block: var(--space-24); }
+  .pgrid { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: var(--space-5); }
+  .pillar {
+    background: var(--color-surface); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .pimg { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--color-blush); }
+  .pimg img { width: 100%; height: 100%; object-fit: cover; }
+  .pillar.big .pimg { aspect-ratio: auto; flex: 1; min-height: 230px; }
+  .pill-tag {
+    position: absolute; left: 14px; top: 14px; display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255, 255, 255, .94); color: var(--color-ink); font-size: var(--text-xs); font-weight: var(--weight-semibold);
+    padding: 6px 11px 6px 8px; border-radius: var(--radius-pill); box-shadow: 0 4px 12px -6px rgba(0, 0, 0, .35);
+  }
+  .pill-tag .ico { width: 16px; height: 16px; color: var(--color-maroon); }
+  .pbody { padding: 22px var(--space-6) 26px; }
+  .pbody p { color: var(--color-muted); font-size: var(--text-md); }
+
+  /* Online process tracker */
+  .tracker { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: var(--space-8); }
+  .track-top {
+    display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); flex-wrap: wrap;
+    padding-bottom: var(--space-6); margin-bottom: var(--space-7); border-bottom: 1px solid var(--color-line);
+  }
+  .track-top b { color: var(--color-ink); font-size: 1.0625rem; }
+  .track-top small { display: block; color: var(--color-muted); font-size: .875rem; }
+  .status {
+    display: inline-flex; align-items: center; gap: var(--space-2); font-size: .8438rem; font-weight: var(--weight-semibold);
+    color: var(--color-maroon); background: var(--color-blush); padding: 7px 12px; border-radius: var(--radius-pill);
+  }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--color-maroon); box-shadow: 0 0 0 3px var(--color-surface); }
+  .track { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); position: relative; }
+  .track::before {
+    content: ""; position: absolute; left: calc(16.66% + 10px); right: calc(16.66% + 10px); top: 19px; height: 2px;
+    background: linear-gradient(90deg, var(--color-maroon) 0 30%, var(--color-line) 30%);
+  }
+  .tstep { position: relative; text-align: center; }
+  .node {
+    width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 18px; display: grid; place-items: center; position: relative; z-index: 1;
+    background: var(--color-surface); border: 2px solid var(--color-line); color: var(--color-muted);
+    font-weight: var(--weight-bold); font-size: var(--text-sm); font-variant-numeric: tabular-nums;
+  }
+  .now .node { background: var(--color-maroon); border-color: var(--color-maroon); color: var(--color-on-maroon); box-shadow: 0 0 0 6px var(--color-blush); }
+  .tcard {
+    background: var(--color-surface-alt); border-radius: var(--radius-md); padding: 22px var(--space-5) var(--space-6);
+    display: flex; flex-direction: column; align-items: center; height: calc(100% - 58px);
+  }
+  .now .tcard { background: var(--color-blush-soft); box-shadow: inset 0 0 0 1px var(--color-rose); }
+  .tcard img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 14px; }
+  .tcard p { color: var(--color-muted); font-size: .9688rem; max-width: 32ch; }
+  .when { margin-top: var(--space-3); font-size: var(--text-xs); font-weight: var(--weight-semibold); color: var(--color-muted); }
+  .now .when { color: var(--color-maroon); }
+
+  /* Featured plans */
+  .prod { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); align-items: stretch; }
+  .pcard {
+    background: var(--color-surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+    display: flex; flex-direction: column; transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .pcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .pvis { height: 200px; background: var(--color-blush-soft); display: grid; place-items: center; overflow: hidden; position: relative; }
+  .pvis.plain { background: var(--color-surface); border-bottom: 1px solid var(--color-line); }
+  .pvis img.contain { max-height: 150px; width: auto; object-fit: contain; }
+  .pvis img.cover { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .pcard .top { padding: var(--space-6) 26px var(--space-6); }
+  .pcard h3 { font-size: var(--text-h3-lg); }
+  .pcard p { color: var(--color-muted); font-size: var(--text-md); }
+  .pcard ul { margin-top: 18px; display: grid; gap: var(--space-2); font-size: .9688rem; color: var(--color-ink); list-style: none; }
+  .pcard li { display: flex; gap: 10px; align-items: center; }
+  .pcard li .ico { width: 20px; height: 20px; color: var(--color-maroon); }
+  .pcard .foot { margin-top: auto; padding: var(--space-5) 26px; border-top: 1px solid var(--color-line); }
+  .feature { background: var(--color-maroon); }
+  .feature h3, .feature ul, .feature li .ico, .feature .link { color: var(--color-on-maroon); }
+  .feature p { color: var(--color-on-maroon-soft); }
+  .feature .tag { background: var(--color-on-maroon-fill); color: var(--color-on-maroon); }
+  .feature .foot { border-color: var(--color-on-maroon-line); }
+  .feature .pvis::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(transparent, rgba(92, 13, 37, .5)); }
+  .feature :focus-visible { outline-color: var(--color-on-maroon); }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 420px 1fr; gap: var(--space-18); align-items: center; }
+  .profile { background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; border: 1px solid var(--color-line); }
+  .profile .ph { aspect-ratio: 5 / 4; overflow: hidden; background: var(--color-ink); }
+  .profile .ph img { width: 100%; height: 100%; object-fit: cover; object-position: 18% 30%; }
+  .meta { padding: 18px var(--space-5); display: flex; align-items: center; gap: var(--space-3); }
+  .meta b { display: block; line-height: 1.25; }
+  .meta small { color: var(--color-muted); font-size: .875rem; }
+  .verified { width: 34px; height: 34px; border-radius: 50%; background: var(--color-blush); color: var(--color-maroon); display: grid; place-items: center; flex: none; margin-left: auto; }
+  .verified .ico { width: 18px; height: 18px; }
+  .about p { margin-bottom: var(--space-4); max-width: 60ch; }
+  .facts { display: flex; gap: 10px; flex-wrap: wrap; margin: var(--space-6) 0 var(--space-8); }
+  .fact {
+    display: inline-flex; gap: var(--space-2); align-items: center; font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    color: var(--color-ink); background: var(--color-surface-alt); padding: 10px 14px; border-radius: var(--radius-pill);
+  }
+  .fact .ico { width: 18px; height: 18px; color: var(--color-maroon); }
+
+  /* Calculator band */
+  .band {
+    background: var(--color-maroon); color: var(--color-on-maroon-soft); border-radius: var(--radius-lg); padding: var(--space-12) var(--space-14);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); position: relative; overflow: hidden;
+  }
+  .band::before { content: ""; position: absolute; width: 320px; height: 320px; border-radius: 50%; right: -80px; top: -160px; background: rgba(255, 255, 255, .07); }
+  .band::after { content: ""; position: absolute; width: 200px; height: 200px; border-radius: 50%; left: 38%; bottom: -140px; border: 1.5px solid rgba(255, 255, 255, .14); }
+  .band > * { position: relative; z-index: 1; }
+  .band h2 { color: var(--color-on-maroon); font-size: var(--text-h2-sm); margin-bottom: 6px; }
+  .band .ico { width: 20px; height: 20px; }
+  .band :focus-visible { outline-color: var(--color-on-maroon); }
+
+  /* Blog */
+  .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); list-style: none; }
+  .post {
+    height: 100%; display: flex; flex-direction: column; text-decoration: none; background: var(--color-surface);
+    border: 1px solid var(--color-line); border-radius: var(--radius); overflow: hidden;
+    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .post:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .post:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+  .thumb { aspect-ratio: 16 / 9; overflow: hidden; background: var(--color-blush-soft); border-bottom: 1px solid var(--color-line); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+  .post .body { padding: var(--space-5) var(--space-6) var(--space-6); }
+  .cat { display: block; font-size: var(--text-xs); font-weight: var(--weight-semibold); color: var(--color-maroon); margin-bottom: var(--space-2); }
+  .post time { font-size: .9688rem; color: var(--color-muted); }
+
+  /* Book */
+  .book-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: var(--space-6); align-items: start; }
+  .contact { display: flex; flex-direction: column; gap: var(--space-3); list-style: none; }
+  .citem {
+    display: flex; gap: 14px; align-items: center; padding: 18px var(--space-5); text-decoration: none; color: var(--color-ink);
+    background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-md);
+    transition: border-color var(--dur-fast), box-shadow var(--dur) var(--ease);
+  }
+  .citem:hover { border-color: var(--color-maroon); box-shadow: var(--shadow); }
+  .citem .tile { width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--color-blush); color: var(--color-maroon); display: grid; place-items: center; flex: none; }
+  .citem small { display: block; color: var(--color-muted); font-size: .875rem; }
+  .citem b { font-size: .9688rem; word-break: break-word; }
+  .msgr { background: var(--color-maroon); border-color: var(--color-maroon); color: var(--color-on-maroon); }
+  .msgr b { color: var(--color-on-maroon); }
+  .msgr small { color: var(--color-on-maroon-soft); }
+  .msgr .tile { background: var(--color-on-maroon-fill); color: var(--color-on-maroon); }
+
+  @media (max-width: 960px) {
+    .hero { padding: var(--space-7) 0 var(--space-16); }
+    .hero-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+    .mosaic { justify-self: center; max-width: 460px; }
+    .guide { border-radius: var(--radius-md); align-items: flex-start; padding: var(--space-2) 14px var(--space-2) var(--space-2); }
+    .ctas .btn { flex: 1 1 100%; }
+    .pillars { padding-block: var(--space-16); }
+    .pgrid, .prod, .posts { grid-template-columns: 1fr; }
+    .pillar.big .pimg { aspect-ratio: 16 / 10; flex: none; min-height: 0; }
+    .tracker { padding: 22px 18px; border-radius: 24px; }
+    .track { grid-template-columns: 1fr; gap: 14px; }
+    .track::before {
+      left: 19px; right: auto; top: 20px; bottom: 40px; width: 2px; height: auto;
+      background: linear-gradient(180deg, var(--color-maroon) 0 22%, var(--color-line) 22%);
+    }
+    .tstep { text-align: left; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+    .node { margin: 0; }
+    .tcard { height: auto; align-items: flex-start; padding: 18px; }
+    .tcard img { width: 44px; height: 44px; margin-bottom: 10px; }
+    .about-grid { grid-template-columns: 1fr; gap: var(--space-9); }
+    .profile { max-width: 420px; }
+    .band { flex-direction: column; align-items: flex-start; padding: var(--space-9) 26px; }
+    .band .btn { width: 100%; white-space: normal; }
+    .book-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  heading?: string;
+  href?: string;
+}
+
+const { heading = 'Book a free online assessment', href = '/contact/#book' } = Astro.props;
+---
+
+<section class="booking section" data-testid="booking-cta" aria-labelledby="booking-cta-h">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2 id="booking-cta-h">{heading}</h2>
+        <p>A video call about your goals and your budget. Free, and no obligation to buy.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-light" href={href}>Book a free assessment <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        <a class="msgr" href={site.messenger[0].href}><svg class="ico" aria-hidden="true"><use href="#i-msg" /></svg>Message me on Messenger</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .band {
+    background: var(--color-maroon); color: var(--color-on-maroon-soft);
+    border-radius: var(--radius-lg); padding: var(--space-12) var(--space-14);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-8);
+    position: relative; overflow: hidden;
+  }
+  .band::before {
+    content: ""; position: absolute; width: 320px; height: 320px; border-radius: 50%;
+    right: -80px; top: -160px; background: rgba(255, 255, 255, .07);
+  }
+  .band > * { position: relative; }
+  h2 { color: var(--color-on-maroon); font-size: var(--text-h2-sm); margin-bottom: 6px; }
+  .actions { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+  .msgr {
+    display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
+    color: var(--color-on-maroon); font-weight: var(--weight-semibold); font-size: var(--text-sm);
+    text-decoration: none;
+  }
+  .msgr .ico { width: 18px; height: 18px; }
+  .msgr:hover { text-decoration: underline; }
+  .band :focus-visible { outline-color: var(--color-on-maroon); }
+  @media (max-width: 960px) {
+    .band { flex-direction: column; align-items: flex-start; padding: var(--space-9) 26px; }
+    .actions, .actions .btn { width: 100%; }
+  }
+</style>

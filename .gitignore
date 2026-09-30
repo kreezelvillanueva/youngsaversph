@@ -17,3 +17,27 @@ build/
 # Editors
 .vscode/
 .idea/
+
+# Astro generated types
+.astro/
+
+# Migration working files (scraped HTML, scripts)
+migration/scratch/
+
+# Local tool state (per machine)
+.claude/
+.serena/
+.playwright-mcp/
+
+# Impeccable scratch: keep only the direction contract and the approved mock
+.impeccable/hook.cache.json
+.impeccable/questions/
+.impeccable/review/
+.impeccable/mocks/*
+!.impeccable/mocks/directions/
+.impeccable/mocks/directions/*
+!.impeccable/mocks/directions/std-final.html
+!.impeccable/mocks/directions/std-final-fold.png
+!.impeccable/mocks/directions/std-final-fold-mobile.png
+test-results/
+playwright-report/

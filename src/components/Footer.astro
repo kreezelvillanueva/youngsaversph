@@ -1,0 +1,78 @@
+---
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid">
+      <div class="brand">
+        <a class="logo" href="/"><span class="mark" aria-hidden="true"></span>Young Savers <span class="ph">PH</span></a>
+        <p>{site.advisor}<br />{site.role}</p>
+        <div class="social">
+          <a href={site.social.facebook} aria-label="Young Savers PH on Facebook"><svg class="ico" aria-hidden="true"><use href="#i-fb" /></svg></a>
+          <a href={site.social.instagram} aria-label="Young Savers PH on Instagram"><svg class="ico" aria-hidden="true"><use href="#i-ig" /></svg></a>
+        </div>
+      </div>
+      <div>
+        <h2 class="h">Products</h2>
+        <ul>{site.products.map((p) => <li><a href={`/products/${p.slug}/`}>{p.name}</a></li>)}</ul>
+      </div>
+      <div>
+        <h2 class="h">Explore</h2>
+        <ul>
+          <li><a href="/become-an-advisor/">Become an Advisor</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact/#book">Book an assessment</a></li>
+          <li><a href={site.calculatorUrl} target="_blank" rel="noopener">Calculate your financial needs<span class="visually-hidden"> (opens aia.com.ph in a new tab)</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="h">Contact</h2>
+        <ul>
+          {site.messenger.map((m) => <li><a href={m.href}>{m.label}</a></li>)}
+          <li><a href={site.phone.href}>{site.phone.display}</a></li>
+          <li><a href={`mailto:${site.email}`}>Email me</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="disc" data-testid="disclaimer">{site.disclaimer}</p>
+    <p class="copy">&copy; {year} {site.name}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--color-maroon-ink); color: var(--color-on-ink-soft); padding: var(--space-18) 0 var(--space-10); font-size: var(--text-sm); }
+  .grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--space-10);
+    padding-bottom: var(--space-12); border-bottom: 1px solid var(--color-on-maroon-fill);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+    font-weight: var(--weight-black); font-size: 1.2rem; letter-spacing: var(--tracking-heading);
+    color: var(--color-on-maroon); text-decoration: none;
+  }
+  .logo .ph { color: var(--color-rose); }
+  .mark { width: 26px; height: 26px; border-radius: var(--radius-xs); background: var(--color-surface); display: grid; place-items: center; }
+  .mark::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--color-maroon); box-shadow: 5px -5px 0 -2px var(--color-rose); }
+  .h { color: var(--color-on-maroon); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: 0; margin-bottom: 14px; }
+  ul { list-style: none; display: grid; gap: 10px; }
+  a { text-decoration: none; }
+  a:hover { color: var(--color-on-maroon); text-decoration: underline; }
+  .site-footer :focus-visible { outline-color: var(--color-on-maroon); }
+  .social { display: flex; gap: 10px; margin-top: var(--space-5); }
+  .social a {
+    width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .22);
+    display: grid; place-items: center; color: var(--color-on-maroon); transition: background var(--dur-fast);
+  }
+  .social a:hover { background: rgba(255, 255, 255, .1); }
+  .social .ico { width: 18px; height: 18px; }
+  .disc { padding-top: var(--space-8); font-size: .8438rem; line-height: 1.65; max-width: 92ch; }
+  .copy { margin-top: var(--space-4); font-size: .8438rem; color: var(--color-on-ink-faint); }
+
+  @media (max-width: 960px) {
+    .grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+    .brand { grid-column: 1 / -1; }
+  }
+</style>

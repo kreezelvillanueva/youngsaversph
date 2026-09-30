@@ -1,0 +1,42 @@
+---
+import { site } from '../data/site';
+---
+
+<div class="cal">
+  <div class="cal-head">
+    <span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-video" /></svg></span>
+    <span><b>Free online assessment</b><small>Video call with {site.advisor.split(' ')[0]}</small></span>
+    <span class="free">Free</span>
+  </div>
+  <!-- ponytail: no min-width (spec had 320px); it overflowed 390px phones inside the card padding -->
+  <div class="calendly-inline-widget" data-url={site.calendlyUrl} style="height:700px" data-testid="calendly"></div>
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <p class="fallback">
+    <a class="link" href={site.calendlyUrl} target="_blank" rel="noopener">Open the booking calendar in a new tab <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></a>
+  </p>
+</div>
+
+<style>
+  .cal {
+    background: var(--color-surface); border: 1px solid var(--color-line); border-radius: 24px;
+    padding: var(--space-7); box-shadow: var(--shadow); display: flex; flex-direction: column; min-width: 0;
+  }
+  .cal-head {
+    display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;
+    padding-bottom: var(--space-5); margin-bottom: var(--space-3); border-bottom: 1px solid var(--color-line);
+  }
+  .cal-head b { display: block; color: var(--color-ink); font-size: .9688rem; line-height: 1.2; }
+  .cal-head small { display: block; color: var(--color-muted); font-size: var(--text-xs); line-height: var(--leading-snug); }
+  .tile { width: 36px; height: 36px; border-radius: 10px; background: var(--color-blush); color: var(--color-maroon); display: grid; place-items: center; flex: none; }
+  .tile .ico { width: 19px; height: 19px; }
+  .free {
+    margin-left: auto; font-size: var(--text-2xs); font-weight: var(--weight-semibold);
+    color: var(--color-maroon); background: var(--color-blush); padding: 4px 9px; border-radius: var(--radius-pill);
+  }
+  .calendly-inline-widget {
+    border-radius: var(--radius-md); overflow: hidden;
+    background: #fff; /* matches Calendly's own white page */
+  }
+  .fallback { margin-top: var(--space-4); font-size: var(--text-sm); }
+  @media (max-width: 960px) { .cal { padding: var(--space-3); border-radius: var(--radius); } .cal-head { padding: var(--space-2) var(--space-2) var(--space-4); } }
+</style>

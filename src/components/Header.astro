@@ -1,0 +1,130 @@
+---
+import { site } from '../data/site';
+
+const path = Astro.url.pathname;
+const current = (href: string) => (path === href ? 'page' : undefined);
+const bookHref = path === '/' ? '#book' : '/contact/#book';
+const inProducts = path.startsWith('/products/');
+const links = [
+  { href: '/become-an-advisor/', label: 'Become an Advisor' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label={`${site.name}, home`}><span class="mark" aria-hidden="true"></span>Young Savers <span class="ph">PH</span></a>
+
+    <nav class="nav-desktop" aria-label="Main">
+      <ul class="menu">
+        <li>
+          <details class="nav-products">
+            <summary class:list={{ active: inProducts }}>Products<svg class="ico" aria-hidden="true"><use href="#i-chev-d" /></svg></summary>
+            <ul>
+              {site.products.map((p) => (
+                <li><a href={`/products/${p.slug}/`} aria-current={current(`/products/${p.slug}/`)}>{p.name}</a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+        {links.map((l) => <li><a href={l.href} aria-current={current(l.href)}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-sm cta" href={bookHref}>Book a free assessment</a>
+
+    <details class="nav-mobile">
+      <summary><svg class="ico open" aria-hidden="true"><use href="#i-menu" /></svg><svg class="ico close" aria-hidden="true"><use href="#i-close" /></svg><span class="visually-hidden">Menu</span></summary>
+      <nav aria-label="Main">
+        <p class="group">Products</p>
+        {site.products.map((p) => (
+          <a class="sub" href={`/products/${p.slug}/`} aria-current={current(`/products/${p.slug}/`)}>{p.name}</a>
+        ))}
+        {links.map((l) => <a href={l.href} aria-current={current(l.href)}>{l.label}</a>)}
+        <a class="btn btn-primary btn-block" href={bookHref}>Book a free assessment</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<script>
+  // <details> can't close on Escape, outside click or focus leaving by itself.
+  for (const d of document.querySelectorAll<HTMLDetailsElement>('details.nav-products, details.nav-mobile')) {
+    document.addEventListener('click', (e) => { if (d.open && !d.contains(e.target as Node)) d.open = false; });
+    d.addEventListener('focusout', (e) => { if (!d.contains(e.relatedTarget as Node)) d.open = false; });
+    d.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary')!.focus(); }
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .9);
+    backdrop-filter: saturate(1.4) blur(12px);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .bar { display: flex; align-items: center; gap: var(--space-8); height: var(--header-h); }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: var(--weight-black); font-size: 1.2rem; letter-spacing: var(--tracking-heading);
+    color: var(--color-ink); text-decoration: none; white-space: nowrap;
+  }
+  .logo .ph { color: var(--color-maroon); }
+  .mark { width: 26px; height: 26px; border-radius: var(--radius-xs); background: var(--color-maroon); display: grid; place-items: center; }
+  .mark::after {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--color-surface); box-shadow: 5px -5px 0 -2px var(--color-rose);
+  }
+
+  .nav-desktop { margin-left: auto; }
+  .menu { display: flex; align-items: center; gap: var(--space-7); font-size: .9688rem; font-weight: var(--weight-medium); }
+  .menu > li > a, .nav-products summary { color: var(--color-ink); text-decoration: none; transition: color var(--dur-fast); }
+  .menu > li > a:hover, .nav-products summary:hover, .nav-products[open] summary { color: var(--color-maroon); }
+  .menu a[aria-current="page"], .nav-products summary.active { color: var(--color-maroon); }
+
+  .nav-products { position: relative; }
+  .nav-products summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+  .nav-products summary::-webkit-details-marker { display: none; }
+  .nav-products summary .ico { width: 16px; height: 16px; transition: transform var(--dur-fast) var(--ease); }
+  .nav-products[open] summary .ico { transform: rotate(180deg); }
+  .nav-products ul {
+    position: absolute; top: 100%; left: -16px; margin-top: 14px; min-width: 240px;
+    background: var(--color-surface); border: 1px solid var(--color-line); border-radius: 14px;
+    box-shadow: var(--shadow); padding: var(--space-2);
+    animation: drop .18s var(--ease);
+  }
+  .nav-products ul a { display: block; padding: 10px 12px; border-radius: var(--radius-xs); text-decoration: none; color: var(--color-ink); }
+  .nav-products ul a:hover { background: var(--color-blush-soft); color: var(--color-maroon); }
+  @keyframes drop { from { opacity: 0; transform: translateY(4px); } }
+
+  .nav-mobile { display: none; margin-left: auto; }
+  .nav-mobile summary {
+    list-style: none; cursor: pointer; width: 44px; height: 44px; display: grid; place-items: center;
+    border-radius: var(--radius-sm); border: 1px solid var(--color-line); color: var(--color-ink);
+  }
+  .nav-mobile summary::-webkit-details-marker { display: none; }
+  .nav-mobile .close, .nav-mobile[open] .open { display: none; }
+  .nav-mobile[open] .close { display: block; }
+  .nav-mobile nav {
+    position: absolute; left: 0; right: 0; top: var(--header-h);
+    max-height: calc(100dvh - var(--header-h)); overflow-y: auto;
+    background: var(--color-surface); border-bottom: 1px solid var(--color-line);
+    padding: var(--space-3) var(--gutter) var(--space-6); box-shadow: var(--shadow);
+  }
+  .nav-mobile nav > a:not(.btn), .group {
+    display: block; padding: 12px 0; border-bottom: 1px solid var(--color-line);
+    text-decoration: none; color: var(--color-ink); font-weight: var(--weight-medium);
+  }
+  .nav-mobile nav a.sub { padding-left: var(--space-4); color: var(--color-muted); font-weight: var(--weight-regular); }
+  .nav-mobile nav a[aria-current="page"] { color: var(--color-maroon); font-weight: var(--weight-semibold); }
+  .nav-mobile .btn { margin-top: var(--space-4); }
+
+  @media (max-width: 1100px) {
+    .nav-desktop, .cta { display: none; }
+    .nav-mobile { display: block; }
+  }
+</style>
