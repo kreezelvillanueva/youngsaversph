@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const fmtDate = (d: Date) => d.toLocaleDateString('en-PH', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<Base title="Blog" description="Plain-language guides to money and insurance in the Philippines, from AIA Philippines financial advisor Kreezel Villanueva.">
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <h1>Blog</h1>
+        <p class="lede">Plain-language guides to money and insurance.</p>
+      </div>
+      <ul class="posts" data-testid="post-list">
+        {posts.map((p) => (
+          <li>
+            <a class="post" href={`/blog/${p.id}/`}>
+              <div class="thumb">{p.data.heroImage && <img src={p.data.heroImage} alt="" width="640" height="360" loading="lazy" decoding="async" />}</div>
+              <div class="body">
+                <h2>{p.data.title}</h2>
+                <time datetime={p.data.date.toISOString().slice(0, 10)}>{fmtDate(p.data.date)}</time>
+                <p>{p.data.description}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <BookingCTA />
+</Base>
+
+<style>
+  .head h1 { margin-bottom: var(--space-3); }
+  .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); list-style: none; }
+  .post {
+    height: 100%; display: flex; flex-direction: column; text-decoration: none; background: var(--color-surface);
+    border: 1px solid var(--color-line); border-radius: var(--radius); overflow: hidden;
+    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .post:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .post:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+  .thumb { aspect-ratio: 16 / 9; overflow: hidden; background: var(--color-blush-soft); border-bottom: 1px solid var(--color-line); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+  .body { padding: var(--space-5) var(--space-6) var(--space-6); }
+  h2 { font-size: var(--text-h3); margin-bottom: var(--space-2); }
+  time { font-size: .9688rem; color: var(--color-muted); }
+  .body p { margin-top: var(--space-3); color: var(--color-text); }
+  @media (max-width: 960px) { .posts { grid-template-columns: 1fr; } }
+</style>

@@ -1,7 +1,7 @@
 ---
-title: "HEALTH LINK"
+title: "Health Link"
 date: 2021-08-29
-description: "WHAT THIS PRODUCT IS ABOUT Improved productivity and boosted company morale are products of happy and healthy employees. This is why providing medical…"
+description: "Health Link is a comprehensive plan that offers medical and life insurance benefits to business owners with at least 5 regular employees."
 tags: ["Health", "HMO", "insurance", "Medical"]
 heroImage: /images/blog/health-link/5f36c774-79a3-42d4-937b-e862aaf0c3f5.png
 oldUrl: /2021/08/health-link.html

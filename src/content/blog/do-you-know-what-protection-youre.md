@@ -1,7 +1,7 @@
 ---
 title: "Do you know what protection you’re getting with an insurance plan?"
 date: 2020-07-30
-description: "At your age — having gained good traction in your career, enjoying the freedom of having finally moved out of your parent’s house, pursuing your life’s…"
+description: "At your age, life insurance may be the last thing on your mind. But the right life insurance can actually safeguard your dreams."
 tags: ["protection"]
 oldUrl: /2020/07/do-you-know-what-protection-youre.html
 ---
