@@ -34,7 +34,7 @@ Like Juan, you too can be protected without breaking the bank. With AIA Philam L
 
 Being young, healthy and living the dream is the best time you about protection. Why wait till you’re older and you’re more prone to sickness when premiums are more affordable in your younger years?
 
-Stay one step ahead with a leader in the insurance industry, AIA Philam Life. Click [HERE](https://www.youngsaversph.com/p/message-me.html) to to schedule an appointment with a financial advisor today.
+Stay one step ahead with a leader in the insurance industry, AIA Philam Life. Click [HERE](/contact/#message) to to schedule an appointment with a financial advisor today.
 
 Note:
 

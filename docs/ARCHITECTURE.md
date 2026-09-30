@@ -270,7 +270,7 @@ Every page has exactly one `<h1>` and ends with a booking path. The disclaimer i
 1. Hero: H1 "Become a financial advisor", full-time or part-time, one line from the old intro. Button "Apply now" links to `#apply`.
 2. What you get: allowance, commissions, bonuses, travel incentives, flexible hours. **The owner must verify these figures** (Risks #2).
 3. Minimum requirements (list).
-4. How it works: training and licensure exams can be done online or face to face. Drop the old "LIMITED TIME OFFER" unless the owner confirms it.
+4. How it works: training and licensure exams can be done online or face to face. The exam-fee offer stays (owner confirmed 2026-10-01).
 5. `<section id="apply">` with the JotForm:
    ```astro
    <div data-testid="jotform"><script is:inline src={`https://form.jotform.com/jsform/${site.jotformId}`}></script></div>
@@ -427,7 +427,7 @@ Without JS, the plain POST still works and Web3Forms shows its own success page.
 6. Contact form: stub the POST with `page.route('https://api.web3forms.com/submit', …)` so there's no real email. Check that success and failure messages appear in `form-status`, and that the honeypot `botcheck` is present and hidden.
 7. At a 360px viewport there is no horizontal scroll.
 8. Redirects run only when `BASE_URL` is a Vercel preview. Use `request.get(old, { maxRedirects: 0 })` and expect 301 and `location` equal to `url-map[old]` for every key, plus `?m=1` variants, `/search/label/Health` and `/feeds/posts/default`.
-9. `url-map.json` keys and `vercel.json` sources are the same set.
+9. `url-map.json` keys and the exact (non-pattern) `vercel.json` sources are the same set; the 5 §7 pattern rules (`/search`, `/search/label/:label`, `/feeds/:path*`, `/:year/:month`, `/:year`) are extra.
 
 `playwright.config.ts`: `webServer: npm run build && npm run preview`, and `baseURL` from `BASE_URL`, defaulting to `http://localhost:4321`.
 
@@ -439,7 +439,7 @@ Without JS, the plain POST still works and Web3Forms shows its own success page.
 2. **Claims need the owner's sign-off before launch**:
    - "save 90% of hospital bills" (Med Assist)
    - "100 critical illnesses" (Critical Protect 100)
-   - the advisor allowances and commissions: "25K–75K monthly", "25% commissions", the exam-fee offer (all from 2021)
+   - the advisor allowances and commissions: "25K–75K monthly", "25% commissions", the exam-fee offer (all from 2021). Confirmed by the owner 2026-10-01, keep as is.
 3. **Privacy policy.** The old privacy page was a Blogger/AdSense template. The default above redirects it to `/contact/`. Given that the form collects personal data (Philippine Data Privacy Act), consider a short `/privacy-policy/` page linked from the footer. Decide before C finalizes `vercel.json`.
 4. **Calculator URL.** The old site used `https://www.philamlife.com/en/financial-needs-calculator.html` (confirmed in `home.html`). Today that URL returns a 301 to `https://www.aia.com.ph/en/financial-needs-calculator.html`. That target returned 503 to curl, which is probably the Akamai CDN blocking bots. `site.ts` uses the `aia.com.ph` URL to skip the hop; confirm it opens in a real browser, and fall back to the philamlife URL if not.
 5. **Web3Forms.** Confirm which inbox the access key delivers to, and restrict the key to the domain in the Web3Forms dashboard if the plan allows.

@@ -52,7 +52,7 @@ Don't let your hospital bill add to your worries. AIA Med Assist helps you focus
 
 It's a co-pay plan that comes in four different packages to match your budget, with a long-term payment scheme that makes premium payments more manageable.
 
-## Medical Benefit
+### Medical Benefit
 
 AIA Med Assist covers your in-patient hospitalization and medical expenses through the **MediCard** that comes with the plan. Because of its co-pay arrangement, 90% of the bill is automatically charged to AIA Philippines, so you only pay the remaining 10%.
 
@@ -62,29 +62,29 @@ Depending on the plan you choose, AIA Med Assist can shoulder up to P4,000,000 a
 
 See the [MediCard General Exclusions and Limitations](https://drive.google.com/file/d/1j2B2PjZ85X5EBeVDs-MgdtfYU6jJhwzU/view?usp=sharing).
 
-## Daily Hospitalization Income
+### Daily Hospitalization Income
 
 Get up to P3,000 of Daily Hospitalization Income for every day that you're confined, over the course of a year, to offset any income you lose while you're in the hospital. You can focus on getting better instead of worrying about your daily income.
 
 ![Daily Hospitalization Income benefit by class: Class A 1,000, Class B 2,000, Class C 3,000](/images/blog/med-assist/2ff1f41b-07e5-4f2b-adec-ce56f3610cb7.jpeg)
 
-## Medical Fund
+### Medical Fund
 
 Besides covering health-related costs, AIA Med Assist also has an **investment fund** that can help you build your own medical fund. So you're not only covered for medical emergencies, you can also grow a good amount of medical savings over a set period.
 
-## Life Insurance Coverage
+### Life Insurance Coverage
 
 In the event of death, AIA Med Assist pays a lump-sum cash benefit to your beneficiaries, which can go as high as 90 times your basic annual premium. This helps ease the financial burden on your loved ones.
 
-## Waiver of Premium
+### Waiver of Premium
 
 In the event of total and permanent disability, you no longer have to pay your basic annual premiums and special top-up payments, so you can focus on more important things.
 
-## AIA Vitality
+### AIA Vitality
 
 The best way to deal with hospitalization is to avoid it altogether. AIA Med Assist comes with AIA Vitality, a science-backed program that encourages a healthier lifestyle by rewarding you at every step of your fitness journey. It helps you know your health, improve your health and enjoy the rewards, so you can live a healthier, longer and better life.
 
-## Sample scenario and estimated quote
+### Sample scenario and estimated quote
 
 ![How it works, sample scenario for Plan B: the plan covers 90% of Antonio's total hospital bill with a maximum annual limit of P1,000,000; he receives P2,000 a day for up to 365 days if confined; his loved ones receive the face amount, account value or minimum life insurance coverage, whichever is higher; and his premiums are waived if he suffers total and permanent disability](/images/blog/med-assist/807b8501-ed00-4284-80ba-9a06b47aaafd.jpeg)
 

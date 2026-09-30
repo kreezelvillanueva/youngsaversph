@@ -8,7 +8,7 @@ oldUrl: /2021/08/health-link.html
 ---
 ![](/images/blog/health-link/5f36c774-79a3-42d4-937b-e862aaf0c3f5.png)
 
-![](/images/blog/health-link/d80f5c41-ee80-4a65-9d7e-e7c8a09a437b.jpeg)
+![Health Link: health insurance for ages 18 to 64, available through an AIA Philippines financial advisor.](/images/blog/health-link/d80f5c41-ee80-4a65-9d7e-e7c8a09a437b.jpeg)
 
 ## WHAT THIS PRODUCT IS ABOUT
 

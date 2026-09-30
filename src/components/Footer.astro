@@ -63,10 +63,10 @@ const year = new Date().getFullYear();
   .site-footer :focus-visible { outline-color: var(--color-on-maroon); }
   .social { display: flex; gap: 10px; margin-top: var(--space-5); }
   .social a {
-    width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .22);
+    width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-on-maroon-border);
     display: grid; place-items: center; color: var(--color-on-maroon); transition: background var(--dur-fast);
   }
-  .social a:hover { background: rgba(255, 255, 255, .1); }
+  .social a:hover { background: var(--color-on-maroon-hover); }
   .social .ico { width: 18px; height: 18px; }
   .disc { padding-top: var(--space-8); font-size: .8438rem; line-height: 1.65; max-width: 92ch; }
   .copy { margin-top: var(--space-4); font-size: .8438rem; color: var(--color-on-ink-faint); }
