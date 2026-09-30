@@ -4,8 +4,8 @@ import { site } from '../data/site';
 
 const perks = [
   { icon: 'laptop', text: 'Mobile Office App' },
-  { icon: 'wallet', text: '25K to 75K Monthly Allowance for Full-Timers', todo: true },
-  { icon: 'growth', text: '25% Performance Based Commissions (Earn 20K to 50K On Top of Allowance & Bonuses)', todo: true },
+  { icon: 'wallet', text: '25K to 75K Monthly Allowance for Full-Timers' },
+  { icon: 'growth', text: '25% Performance Based Commissions (Earn 20K to 50K On Top of Allowance & Bonuses)' },
   { icon: 'award', text: 'Quarterly Performance Bonus' },
   { icon: 'check', text: 'Local & International Travel Incentives' },
   { icon: 'clock', text: 'Flexibility in your working hours / business calendar' },
@@ -53,7 +53,7 @@ const requirements = [
         {perks.map((p) => (
           <li class="card perk">
             <span class="tile" aria-hidden="true"><svg class="ico"><use href={`#i-${p.icon}`} /></svg></span>
-            <span>{p.text}{p.todo && <span class="todo">TODO(owner): verify (2021 figure)</span>}</span>
+            <span>{p.text}</span>
           </li>
         ))}
       </ul>
@@ -77,7 +77,6 @@ const requirements = [
         </ol>
         <p class="offer">
           Finish your online training modules in 10 days and we will shoulder the cost of your exam fee. Just pay for the license fee.
-          <span class="todo">TODO(owner): verify this offer is still running (2021)</span>
         </p>
         <p><a class="link" href="https://www.youtube.com/watch?v=AnZj0CFd4-Y" target="_blank" rel="noopener">Watch: #StepUp with AIA Philippines <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></a></p>
       </div>
@@ -122,11 +121,6 @@ const requirements = [
   .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); list-style: none; }
   .perk { display: flex; gap: 14px; align-items: flex-start; padding: var(--space-6); color: var(--color-ink); font-weight: var(--weight-medium); }
   .tile { width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--color-blush); color: var(--color-maroon); display: grid; place-items: center; flex: none; }
-  .todo {
-    display: block; width: fit-content; margin-top: var(--space-2); padding: 2px 8px; border-radius: var(--radius-pill);
-    font-size: var(--text-2xs); font-weight: var(--weight-semibold); color: var(--color-maroon); background: var(--color-blush);
-    border: 1px dashed var(--color-maroon);
-  }
 
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
   .two h2 { font-size: var(--text-h2-sm); margin-bottom: var(--space-6); }

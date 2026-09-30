@@ -20,5 +20,3 @@ With AIA All-In-One, you get protected against 4 major risks in life: untimely d
 The plan gives a cash payout to your loved ones in case of an untimely death, and cash support in case of accidents, disabilities and critical illnesses.\*
 
 \*Payment of benefits is subject to the terms, conditions, definitions, exclusions and limitations found in the policy contract.
-
-TODO(owner): the old site had no All-In-One page. Add plan details (issue ages, coverage amounts, riders, how claims work) from current AIA material, or keep this page short.
