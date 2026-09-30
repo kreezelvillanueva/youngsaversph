@@ -1,5 +1,4 @@
 {
-  "/": "/",
   "/2021/08/health-link.html": "/blog/health-link/",
   "/2020/06/aia-med-assist.html": "/products/med-assist/",
   "/2021/04/aia-critical-protect-100.html": "/products/critical-protect-100/",
@@ -10,7 +9,7 @@
   "/2020/07/3-building-blocks-to-powerful-emergency.html": "/blog/3-building-blocks-to-powerful-emergency/",
   "/2020/07/blog-post.html": "/blog/blog-post/",
   "/p/quick-myaia-guide.html": "/",
-  "/p/aia-med-assist-frequently-asked.html": "/products/med-assist/",
+  "/p/aia-med-assist-frequently-asked.html": "/products/med-assist/#faq",
   "/p/mail-signature.html": "/",
   "/p/health-questionnaire.html": "/contact/",
   "/p/thank-you-your-initial-application-form.html": "/become-an-advisor/",
@@ -19,7 +18,7 @@
   "/p/why-philam-vitality-is-right-for-you.html": "/",
   "/p/thank-you.html": "/",
   "/p/we-are-hiring-financial-advisor.html": "/become-an-advisor/",
-  "/p/privacy-policy.html": "/privacy-policy/",
+  "/p/privacy-policy.html": "/contact/",
   "/p/free-financial-planning-ebook.html": "/",
   "/p/message-me.html": "/contact/"
 }
