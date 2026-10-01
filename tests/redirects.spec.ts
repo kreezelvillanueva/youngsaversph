@@ -9,7 +9,7 @@ const vercel = JSON.parse(readFileSync('vercel.json', 'utf8')) as {
 test('9. url-map.json keys and vercel.json exact sources are the same set', ({ isMobile }) => {
   test.skip(isMobile, 'viewport-independent');
   const sources = vercel.redirects.map((r) => r.source);
-  // Pattern rules (/search, /search/label/:label, /feeds/:path*, year/month) are extra by design (§7).
+  // Pattern rules (/search/, /search/label/:label/, /feeds/:path*/, year/month/) are extra by design (§7).
   const exact = sources.filter((s) => s.endsWith('.html'));
   console.log(`url-map keys: ${Object.keys(urlMap).length}, vercel.json sources: ${sources.length} (${exact.length} exact + ${sources.length - exact.length} pattern)`);
   expect([...exact].sort()).toEqual(Object.keys(urlMap).sort());
@@ -34,8 +34,11 @@ test.describe('8. 301 redirects (Vercel preview only)', () => {
   const cases: [string, string][] = [
     ...Object.entries(urlMap),
     ...Object.entries(urlMap).map(([from, to]): [string, string] => [`${from}?m=1`, withM1(to)]),
-    ['/search/label/Health', '/blog/'],
-    ['/feeds/posts/default', '/blog/'],
+    // trailingSlash adds the slash (308) before redirects match, so pattern sources end in '/'.
+    ['/search/label/Health/', '/blog/'],
+    ['/feeds/posts/default/', '/blog/'],
+    ['/2021/08/', '/blog/'],
+    ['/2021/', '/blog/'],
   ];
 
   for (const [from, to] of cases) {

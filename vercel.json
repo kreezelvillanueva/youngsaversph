@@ -112,27 +112,27 @@
       "statusCode": 301
     },
     {
-      "source": "/search/label/:label",
+      "source": "/search/label/:label/",
       "destination": "/blog/",
       "statusCode": 301
     },
     {
-      "source": "/search",
+      "source": "/search/",
       "destination": "/blog/",
       "statusCode": 301
     },
     {
-      "source": "/feeds/:path*",
+      "source": "/feeds/:path*/",
       "destination": "/blog/",
       "statusCode": 301
     },
     {
-      "source": "/:year(\\d{4})/:month(\\d{2})",
+      "source": "/:year(\\d{4})/:month(\\d{2})/",
       "destination": "/blog/",
       "statusCode": 301
     },
     {
-      "source": "/:year(\\d{4})",
+      "source": "/:year(\\d{4})/",
       "destination": "/blog/",
       "statusCode": 301
     }

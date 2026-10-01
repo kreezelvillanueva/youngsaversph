@@ -41,3 +41,5 @@ migration/scratch/
 !.impeccable/mocks/directions/std-final-fold-mobile.png
 test-results/
 playwright-report/
+.vercel
+.env*
