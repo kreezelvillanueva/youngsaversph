@@ -2,7 +2,7 @@
 import { site } from '../data/site';
 
 const path = Astro.url.pathname;
-const current = (href: string) => (path === href ? 'page' : undefined);
+const current = (href: string) => (path === href ? 'page' : href === '/blog/' && path.startsWith(href) ? 'true' : undefined);
 const bookHref = path === '/' ? '#book' : '/contact/#book';
 const inProducts = path.startsWith('/products/');
 const links = [

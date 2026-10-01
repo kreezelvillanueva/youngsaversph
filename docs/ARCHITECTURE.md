@@ -246,7 +246,7 @@ On small screens the panel should sit in the page flow rather than overlap conte
 Every page has exactly one `<h1>` and ends with a booking path. The disclaimer is in the footer on every page.
 
 **Home** (Lead; source `hometext.txt`)
-1. Hero: advisor photo, H1 "Kreezel B. Villanueva", role line, "Fully online, assessment first" line. Primary button "Book a free online assessment" links to `#book`; secondary is Messenger.
+1. Hero: "Your guide" pill (photo, name, role), H1 "Insurance, made simple.", lede. Primary button "Book a free online assessment" links to `#book`; secondary is Messenger.
 2. "Start planning for your financial goals": Savings, Protection and Investment, 3 items using the old one-line copy.
 3. "Get your policy fully online, no face-to-face meeting": Virtual meeting, Online application, Online payment.
 4. Featured products: 3 cards linking to the product pages.
