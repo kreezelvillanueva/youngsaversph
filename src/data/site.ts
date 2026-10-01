@@ -26,5 +26,5 @@ export const site = {
   disclaimer:
     'This is not an official website of AIA Philippines or the AIA Group. Product information here is a general overview only and is not a policy contract. Benefits, coverage and terms are governed by the policy contract and may change. For official information, visit aia.com.ph.',
   privacyLine:
-    'The details you share are used only to respond to your inquiry and are never shared with third parties.',
+    'The details you share are used only to respond to your inquiry.',
 } as const;

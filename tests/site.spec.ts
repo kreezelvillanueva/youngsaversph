@@ -9,7 +9,7 @@ const slugs = readdirSync('src/content/blog')
 const pages = [
   '/',
   '/products/med-assist/', '/products/critical-protect-100/', '/products/all-in-one/',
-  '/become-an-advisor/', '/contact/', '/blog/',
+  '/become-an-advisor/', '/contact/', '/blog/', '/privacy/',
   ...slugs.map((s) => `/blog/${s}/`),
 ];
 const missing = '/this-page-does-not-exist/';
