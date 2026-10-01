@@ -7,7 +7,7 @@ import { site } from '../data/site';
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
-const fmtDate = (d: Date) => d.toLocaleDateString('en-PH', { year: 'numeric', month: 'short', day: 'numeric' });
+const fmtDate = (d: Date) => d.toLocaleDateString('en-PH', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const productHref = (slug: string) => `/products/${slug}/`;

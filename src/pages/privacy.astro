@@ -5,7 +5,7 @@ import { Content, frontmatter } from '../legal/privacy.md';
 
 const { title, description, updated } = frontmatter;
 const date = new Date(updated);
-const fmtDate = date.toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+const fmtDate = date.toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
 
 <Base title={title} description={description}>
