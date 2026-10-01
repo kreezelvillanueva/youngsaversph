@@ -1,5 +1,5 @@
 ---
-title: "Do you know what protection you’re getting with an insurance plan?"
+title: "Do You Know What Protection You’re Getting With an Insurance Plan?"
 date: 2020-07-30
 description: "At your age, life insurance may be the last thing on your mind. But the right life insurance can actually safeguard your dreams."
 tags: ["protection"]
@@ -9,7 +9,7 @@ At your age — having gained good traction in your career, enjoying the freedom
 
 But here’s something to think about: the right life insurance can actually safeguard your dreams. Let us paint you a picture.
 
-## JUAN’S STORY: WORRY ABOUT THE FUTURE
+## Juan’s story: worry about the future
 
 - ### ACCIDENTS.
 
@@ -26,7 +26,7 @@ But here’s something to think about: the right life insurance can actually saf
 
 There’s no telling when any of these will strike, but the right insurance can give Juan the reassurance he needs because he’s protected from life’s major risks.
 
-## NOW’S THE TIME TO START
+## Now’s the time to start
 
 Juan, who also takes care of his health and doesn’t smoke, can get protected for less than the gourmet coffee his officemates drink every day! Setting aside less than P100 a day for 20 years isn’t a heavy expense on his pocket for peace of mind later on.
 

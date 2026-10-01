@@ -33,7 +33,7 @@
   --gradient-maroon: linear-gradient(150deg, var(--color-maroon) 0%, var(--color-maroon-ink) 100%);
 
   /* Type */
-  --font-sans: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--font-onest), system-ui, -apple-system, "Segoe UI", sans-serif;
   --text-2xs: .75rem;      /* 12px: tiny badges */
   --text-xs: .8125rem;     /* 13px: pill labels, captions */
   --text-sm: .9375rem;     /* 15px: nav, small UI, footer */

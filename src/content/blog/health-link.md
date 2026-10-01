@@ -10,7 +10,7 @@ oldUrl: /2021/08/health-link.html
 
 ![Health Link: health insurance for ages 18 to 64, available through an AIA Philippines financial advisor.](/images/blog/health-link/d80f5c41-ee80-4a65-9d7e-e7c8a09a437b.jpeg)
 
-## WHAT THIS PRODUCT IS ABOUT
+## What this product is about
 
 Improved productivity and boosted company morale are products of happy and healthy employees. This is why providing medical benefits for your workforce is key to their productivity.
 
