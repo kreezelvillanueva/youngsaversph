@@ -27,6 +27,7 @@ Stack: Astro 7.3.5 (already in `package.json`) with static output, hosted on Ver
 /blog/                          Blog index
 /blog/<slug>/                   Blog post (slug = old Blogger filename without .html)
 /contact/                       Contact: #book (Calendly), #message (form)
+/privacy/                       Privacy Policy (text in src/legal/privacy.md; linked from footer and contact form)
 /404.html                       Not found
 /sitemap-index.xml              generated
 /robots.txt                     static
@@ -356,7 +357,7 @@ Without JS, the plain POST still works and Web3Forms shows its own success page.
     { "source": "/p/health-questionnaire.html", "destination": "/contact/", "statusCode": 301 },
     { "source": "/p/shop.html", "destination": "/contact/", "statusCode": 301 },
     { "source": "/p/your-request-for-quote-has-been.html", "destination": "/contact/", "statusCode": 301 },
-    { "source": "/p/privacy-policy.html", "destination": "/contact/", "statusCode": 301 },
+    { "source": "/p/privacy-policy.html", "destination": "/privacy/", "statusCode": 301 },
     { "source": "/p/why-philam-vitality-is-right-for-you.html", "destination": "/", "statusCode": 301 },
     { "source": "/p/free-financial-planning-ebook.html", "destination": "/", "statusCode": 301 },
     { "source": "/p/quick-myaia-guide.html", "destination": "/", "statusCode": 301 },

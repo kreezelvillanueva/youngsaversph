@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import { Content, frontmatter } from '../legal/privacy.md';
+
+const { title, description, updated } = frontmatter;
+const date = new Date(updated);
+const fmtDate = date.toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title={title} description={description}>
+  <article class="section">
+    <div class="wrap">
+      <h1>{title}</h1>
+      <p class="meta">Last updated <time datetime={date.toISOString().slice(0, 10)}>{fmtDate}</time></p>
+      <div class="prose"><Content /></div>
+    </div>
+  </article>
+  <BookingCTA />
+</Base>
+
+<style>
+  .wrap > h1, .meta { max-width: var(--measure); }
+  h1 { font-size: var(--text-h2); margin-bottom: var(--space-3); }
+  .meta { color: var(--color-muted); margin-bottom: var(--space-8); }
+</style>

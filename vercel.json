@@ -98,7 +98,7 @@
     },
     {
       "source": "/p/privacy-policy.html",
-      "destination": "/contact/",
+      "destination": "/privacy/",
       "statusCode": 301
     },
     {
