@@ -377,7 +377,7 @@ Without JS, the plain POST still works and Web3Forms shows its own success page.
 - **Trailing slashes.** `trailingSlash: true` sends a 308 from `/blog` to `/blog/`. Paths with a file extension (`.html`) are excluded, and every destination already ends in `/`, so each old URL takes a single hop.
 - **Unknown old URLs.** They fall through to `404.astro` (a real 404). That is correct.
 - **Testing.** `astro preview` does **not** apply `vercel.json`. Redirects must be tested against a Vercel preview deployment (`BASE_URL`).
-- **Privacy policy.** The Migrator's script mapped `/p/privacy-policy.html` to `/privacy-policy/`, a page that isn't in the sitemap. The config above sends it to `/contact/`, so `url-map.json` must be changed to match, or Lead adds a privacy page (Risks #3).
+- **Privacy policy.** Resolved 2026-10-01 (KRE-18): `/p/privacy-policy.html` 301s to the new `/privacy/` page, linked from the footer and the contact form.
 
 ---
 
@@ -441,7 +441,7 @@ Without JS, the plain POST still works and Web3Forms shows its own success page.
    - "save 90% of hospital bills" (Med Assist)
    - "100 critical illnesses" (Critical Protect 100)
    - the advisor allowances and commissions: "25K–75K monthly", "25% commissions", the exam-fee offer (all from 2021). Confirmed by the owner 2026-10-01, keep as is.
-3. **Privacy policy.** The old privacy page was a Blogger/AdSense template. The default above redirects it to `/contact/`. Given that the form collects personal data (Philippine Data Privacy Act), consider a short `/privacy-policy/` page linked from the footer. Decide before C finalizes `vercel.json`.
+3. **Privacy policy.** Resolved 2026-10-01 (KRE-18): new `/privacy/` page covering the contact form, Calendly, JotForm and Vercel under the Data Privacy Act.
 4. **Calculator URL.** The old site used `https://www.philamlife.com/en/financial-needs-calculator.html` (confirmed in `home.html`). Today that URL returns a 301 to `https://www.aia.com.ph/en/financial-needs-calculator.html`. That target returned 503 to curl, which is probably the Akamai CDN blocking bots. `site.ts` uses the `aia.com.ph` URL to skip the hop; confirm it opens in a real browser, and fall back to the philamlife URL if not.
 5. **Web3Forms.** Confirm which inbox the access key delivers to, and restrict the key to the domain in the Web3Forms dashboard if the plan allows.
 6. **Images.** Some migrated images are 600–900 KB PNGs; Astro doesn't optimize images in `public/`. Do a one-time recompress before launch (max 1600px wide, JPEG/WebP around 200 KB; macOS `sips` is enough). Markdown images don't get `loading="lazy"`; accept that.
